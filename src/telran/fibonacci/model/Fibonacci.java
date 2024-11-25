@@ -19,7 +19,6 @@ public class Fibonacci implements Iterable<Integer>{
 
     @Override
     public Iterator<Integer> iterator() {
-        // TODO implements Iterator
         return new FibonacciIterator(this.quantity);
     }
 }
