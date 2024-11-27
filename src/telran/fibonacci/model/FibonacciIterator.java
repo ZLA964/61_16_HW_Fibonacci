@@ -2,55 +2,26 @@ package telran.fibonacci.model;
 
 import java.util.Iterator;
 
-public class FibonacciIterator implements Iterator<Integer> {
-    private int full;
-    private int start = 1;
-    int i;
-    private int current;
-    private int previous;
+public class FibonacciIterator implements Iterator<Integer>     {
+    private int lastFibonacci;
+    private int current = 0 ;
+    private int previous = 1;
 
-    public FibonacciIterator(int quantity) {
-        this.full = quantity;
-        this.previous = start;
-        int i = 0;
+    @Override
+    public Integer next() {
+        int nextValue = previous + current;
+        previous = current;
+        current = nextValue ;
+        return current;
+    }
+
+    public FibonacciIterator(int lastFibonacci) {
+        this.lastFibonacci = lastFibonacci;
     }
 
     @Override
     public boolean hasNext() {
-        return i < full;
+        return current < lastFibonacci;
     }
 
-    @Override
-    public Integer next() {
-        switch (i) {
-            case 0:
-                current = start;
-                i++;
-                break;
-            case 1:
-                i++;
-                break;
-            default:
-                int summ = previous + current;
-                previous = current;
-                current = summ;
-                i++;
-        }
-//
-//        if (i == 0) {
-//            previous = start;
-//            i++;
-//            return start;
-//        }
-//        if (i == 1) {
-//            i++;
-//            current = previous;
-//        } else {
-//            i++;
-//            int summ = previous + current;
-//            previous = current;
-//            current = summ;
-//        }
-        return current;
-    }
 }

@@ -5,6 +5,7 @@ import telran.fibonacci.model.Fibonacci;
 public class FibonacciAppl {
     public static void main(String[] args) {
         Fibonacci fibonacci = new Fibonacci(8);
+       System.out.println(fibonacci.getLastFibonacci());
         // print all numbers, and reduce sum
         // 1,1,2,3,5,8,13,21
         // sum = 54
